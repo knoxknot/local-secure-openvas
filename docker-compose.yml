@@ -49,14 +49,14 @@ services:
 
   mqtt-broker:
     container_name: mqtt-broker
+    expose:
+      - "1883"
     image: greenbone/mqtt-broker:latest
     networks:
       default:
         aliases:
           - mqtt-broker
           - broker
-    ports:
-      - 1883:1883
     restart: on-failure
 
   notus-scanner:
